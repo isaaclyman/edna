@@ -13,6 +13,8 @@ Edna is the husk of a full-stack JavaScript [app](https://github.com/isaaclyman/
 
 ## Founding Principles
 
+Edna is a full-stack web app that doesn't do anything yet. She assumes that you want to build a single-page, client-rendered Progressive Web App that requires a static landing page, a signup page, a login page, email verification, password reset, and multiple account types.
+
 Edna is opinionated, but her opinions are excellent. She thinks you should use:
 
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as an all-purpose programming language.
@@ -30,8 +32,6 @@ Edna is opinionated, but her opinions are excellent. She thinks you should use:
 - [Heroku](https://www.heroku.com/) as an app engine and web host.
 
 If you can tolerate her opinions, you've got an instant full-stack web app--just add ideas. If not, it's going to take some work on your end to switch things out. Maybe too much work.
-
-Edna assumes that you're building a single-page, client-rendered Progressive Web App that requires a static landing page, a signup page, a login page, email verification, password reset, and multiple account types.
 
 If you're an absolute beginner to web technologies, Edna may not be the right foundation for your project. You should be familiar with Webpack and Vue, or at least be prepared to spend a few days on complex configuration and build issues any time you diverge from Edna's assumptions about the structure and content of your web app.
 
