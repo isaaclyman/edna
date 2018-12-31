@@ -1,7 +1,7 @@
 import { app, route, serverReady } from '../_imports'
 import request from 'request-promise-native'
 
-const user = { email: 'trash@edwardtheapp.com', password: 'thisismysecurepassword', captchaResponse: 'token' }
+const user = { email: 'trash@example.com', password: 'thisismysecurepassword', captchaResponse: 'token' }
 
 beforeAll(() => {
   const oldPost = request.post

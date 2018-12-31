@@ -32,7 +32,7 @@ const route = route => `/api/${route}`
 */
 
 const user = {
-  email: 'trash@edwardtheapp.com',
+  email: 'trash@example.com',
   password: 'thisismysecurepassword',
   captchaResponse: 'token',
   resetKey: '5cf197a4-1029-4250-91cc-6f0ef75bca77',
@@ -40,7 +40,7 @@ const user = {
 }
 
 const alternateUser = {}
-Object.assign(alternateUser, user, { email: 'trash2@edwardtheapp.com' })
+Object.assign(alternateUser, user, { email: 'trash2@example.com' })
 
 function getTestUserId (knex) {
   return knex('users').where('email', user.email).first('id').then(({ id }) => id)

@@ -4,10 +4,10 @@ import Email from '../../../api/email.helper'
 test('An email can be sent', async done => {
   await serverReady
   const email = new Email(
-    ['trash@edwardtheapp.com'],
+    ['trash@example.com'],
     'Integration test by test/api/email.js',
     'This is a test email and was probably received in error.' +
-    '\nIf you see it more than once, contact support@edwardtheapp.com.'
+    '\nIf you see it more than once, contact us for assistance.'
   )
   
   return email.send().then(info => {
