@@ -1,0 +1,11 @@
+/* The stylesheet for your static landing page. */
+
+html, body {
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
