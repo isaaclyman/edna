@@ -7,7 +7,7 @@ Edna is the husk of a full-stack JavaScript [app](https://github.com/isaaclyman/
 - Seems to be watching you, fascinated, as though she's been waiting for you to arrive.
 - That's ridiculous, she's an inanimate object made out of code.
 - Is she calling you? How could she know your name?
-- Suddenly it all makes sense: snapping awake at night without knowing why; a flood of waking dreams and ideas coming to you during your morning shower; that directionless yet intense urge to *create*; the way strangers look at you as if they recognize you, as if their future selves have seen you in papers and magazines but they don't know how to tell you.
+- Suddenly it all makes sense: snapping awake at night without knowing why; a flood of waking dreams and ideas coming to you during your morning shower; that directionless yet intense urge to _create_; the way strangers look at you as if they recognize you, as if their future selves have seen you in papers and magazines but they don't know how to tell you.
 - Perhaps this is the first step on a long journey--not just for you, but for the bright spark of an idea you've been carrying quietly inside of yourself, waiting for the right kindling to set it ablaze.
 - Yes, that must be it.
 
@@ -21,7 +21,7 @@ Edna is opinionated, but her opinions are excellent. She thinks you should use:
 - [Webpack](https://webpack.js.org/) as a module bundler and build toolset.
 - [PostgreSQL](https://www.postgresql.org/) as a database.
 - [Knex.js](https://knexjs.org/) as a query builder and database migration runner.
-- *Nothing* as an ORM. Edna tried an ORM. She didn't like it and soon found she didn't need it.
+- _Nothing_ as an ORM. Edna tried an ORM. She didn't like it and soon found she didn't need it.
 - [Node.js](https://nodejs.org/en/) as a server-side JavaScript environment.
 - [Express](https://expressjs.com/) as a server API framework.
 - [Passport](http://www.passportjs.org/) as a user authentication library.
@@ -59,7 +59,7 @@ The best way to get started is to clone the repository, fill out the environment
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -91,7 +91,7 @@ npm run cypress
 
 For local development, you'll need an `.env` file at the project root with the following keys:
 
-- `DATABASE_URL={connectionString}`: A connection string for a local Postgres database. An empty database with a `public` schema and no tables should be sufficient; the ORM will create the tables and relations automatically.
+- `DATABASE_URL={connectionString}`: A connection string for a Postgres database. Postgres connection strings have the format `postgres://{username}:{password}@{host}:{port}/{database}`. So if you create a database named "edward" on your computer, where the admin user has the password "abcdef", your connection string will look something like `postgres://admin:abcdef@localhost:5432/edward`. Your database should have a `public` schema and no tables; the ORM will create the tables and relations automatically.
 - `DEBUG_DB={true|false}`: When true, all database calls will be logged to the server console.
 - `NO_SSL_DB={true|false}`: When true, an SSL connection will not be used to connect to the Postgres database. This should be "true" for local development.
 - `INSECURE_COOKIES={true|false}`: When true, the "secure" parameter will not be set for auth cookies. This should be "true" for local development.
