@@ -7,7 +7,6 @@ import Forgot from './forgot.page.vue'
 import Login from './login.page.vue'
 import Reset from './reset.page.vue'
 import Signup from './signup.page.vue'
-import Success from './success.page.vue'
 import Verification from './verification.page.vue'
 import Verify from './verify.page.vue'
 
@@ -18,97 +17,107 @@ const getCurrentUser = () => currentUser
 
 // Use this route guard to ensure the user is logged in.
 const assertLoggedIn = (to, from, next) => {
-  authApi.getUser().then((user) => {
-    currentUser = user
-    next()
-  }, (err) => {
-    console.error(err)
-    next({ path: '/login' })
-  })
+  authApi.getUser().then(
+    user => {
+      currentUser = user
+      next()
+    },
+    err => {
+      console.error(err)
+      next({ path: '/login' })
+    }
+  )
 }
 
 // Use this route guard to ensure the user's email address is verified.
 const assertVerified = (to, from, next) => {
-  authApi.getUser().then((user) => {
-    currentUser = user
-    if (user.verified === false) {
-      return next({ path: '/verification' })
+  authApi.getUser().then(
+    user => {
+      currentUser = user
+      if (user.verified === false) {
+        return next({ path: '/verification' })
+      }
+      next()
+    },
+    err => {
+      console.error(err)
+      next({ path: '/login' })
     }
-    next()
-  }, (err) => {
-    console.error(err)
-    next({ path: '/login' })
-  })
+  )
 }
 
 // Use this route guard to ensure the user's email address is *not* verified.
 const assertUnverified = (to, from, next) => {
-  authApi.getUser().then((user) => {
-    currentUser = user
-    if (user.verified === true) {
-      return next({ path: '/account' })
+  authApi.getUser().then(
+    user => {
+      currentUser = user
+      if (user.verified === true) {
+        return next({ path: '/account' })
+      }
+      next()
+    },
+    err => {
+      console.error(err)
+      next({ path: '/login' })
     }
-    next()
-  }, (err) => {
-    console.error(err)
-    next({ path: '/login' })
-  })
+  )
 }
 
 export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login',
+      redirect: '/login'
     },
     {
       path: '/login',
       name: 'Log In',
-      component: Login,
+      component: Login
     },
     {
       path: '/account',
       name: 'Account',
-      component: () => import('./account.page.vue' /* webpackChunkName: "account-page" */),
+      component: () =>
+        import('./account.page.vue' /* webpackChunkName: "account-page" */),
       beforeEnter: assertLoggedIn,
-      meta: { getCurrentUser },
+      meta: { getCurrentUser }
     },
     {
       path: '/delete-account',
       name: 'Delete Your Account',
       component: DeleteAccount,
-      beforeEnter: assertLoggedIn,
+      beforeEnter: assertLoggedIn
     },
     {
       path: '/forgot',
       name: 'Forgot Password',
-      component: Forgot,
+      component: Forgot
     },
     {
       path: '/reset/:email/:key',
       name: 'Reset Password',
-      component: Reset,
+      component: Reset
     },
     {
       path: '/signup',
       name: 'Sign Up',
-      component: Signup,
+      component: Signup
     },
     {
       path: '/verification',
       name: 'Verify Account',
       component: Verification,
       beforeEnter: assertUnverified,
-      meta: { getCurrentUser },
+      meta: { getCurrentUser }
     },
     {
       path: '/verify/:email/:key',
       name: 'Verify Link',
-      component: Verify,
+      component: Verify
     },
     {
       path: '*',
-      redirect: '/',
-    },
-  ],
+      redirect: '/'
+    }
+  ]
 })
